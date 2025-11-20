@@ -3,18 +3,20 @@ This project aims to determine the IDH mutation status (IDH+/IDH−) of glioma c
 ## Pipeline Summary
 1. WSI Segmentation (Trident)
 Segmentation is a critical initial step, as a raw WSI typically contains extensive background areas, scanner artifacts, pen markings, and other non-biological elements. The purpose of segmentation is to isolate true tissue regions and exclude irrelevant content, thereby ensuring that downstream models operate exclusively on biologically meaningful data.
-2. Patch Extraction (Trident)
+3. Patch Extraction (Trident)
 Because WSIs cannot be processed directly due to their size, segmented tissues are decomposed into smaller image patches.
 The WSIs in the dataset were scanned at varying physical resolutions (20×–40×), so patches were extracted uniformly at 20× magnification with a size of 256×256 pixels.
 This choice ensures:
+
 •	consistent physical scale across all cases
 •	adequate morphological detail within each patch
+
 •	computational efficiency.
-3. Embedding Extraction
+5. Embedding Extraction
 Each patch is converted into a high-dimensional feature vector (“embedding”). Two embedding models were employed:
 •	UNI2: a self-supervised model trained specifically on large histopathology datasets, designed to capture fine-grained morphological structures.
 •	ResNet50: a widely used convolutional neural network that serves as a classical baseline.
-4. IDH Classification
+6. IDH Classification
 Two classification strategies were implemented:
 • SVM on mean-pooled embeddings
 A baseline method in which patch embeddings are averaged per slide and classified using a Support Vector Machine.
