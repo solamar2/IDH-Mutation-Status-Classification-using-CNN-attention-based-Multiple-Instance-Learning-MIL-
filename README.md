@@ -1,6 +1,6 @@
-## IDH-Mutation-Status-Classification-using-CNN-attention-based-Multiple-Instance-Learning-MIL-
+# IDH-Mutation-Status-Classification-using-CNN-attention-based-Multiple-Instance-Learning-MIL-
 This project aims to determine the IDH mutation status (IDH+/IDH−) of glioma cases using Whole Slide Images (WSIs). WSIs are extremely large, heterogeneous images that contain both biological tissue and substantial non-informative regions. Therefore, a structured preprocessing pipeline is essential before meaningful feature extraction and classification can be performed.
-# Pipeline Summary
+## Pipeline Summary
 1. WSI Segmentation (Trident)
 Segmentation is a critical initial step, as a raw WSI typically contains extensive background areas, scanner artifacts, pen markings, and other non-biological elements. The purpose of segmentation is to isolate true tissue regions and exclude irrelevant content, thereby ensuring that downstream models operate exclusively on biologically meaningful data.
 2. Patch Extraction (Trident)
